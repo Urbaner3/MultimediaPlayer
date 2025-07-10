@@ -30,17 +30,25 @@ project("ffmpegbridge")
 #        # List C/C++ source files with relative paths to this CMakeLists.txt.
 #        native-lib.cpp)
 
+# 設置 FFmpeg 頭文件路徑
+set(FFMPEG_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
+set(JNI_LIBS_DIR ${CMAKE_SOURCE_DIR}/../jniLibs)
+
+# 包含 FFmpeg 頭文件目錄
+include_directories(${FFMPEG_INCLUDE_DIR})
+
 # ✅ Shared include folder (not ABI-specific)
 include_directories(src/main/cpp/include)
 
+# ✅ Dynamically load ABI-specific shared libraries
+#add_library(ffmpeg SHARED IMPORTED)
+
+# generate my library
 add_library(
         ffmpegbridge
         SHARED
-#        src/main/cpp/
+        #        src/main/cpp/
         ffmpeg_bridge.cpp)
-
-# ✅ Dynamically load ABI-specific shared libraries
-#add_library(ffmpeg SHARED IMPORTED)
 
 # Path based on current build ABI
 set(lib_path ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
@@ -64,4 +72,5 @@ find_library(
 target_link_libraries(
         ffmpegbridge
 #        ffmpeg
+        android
         ${log-lib})

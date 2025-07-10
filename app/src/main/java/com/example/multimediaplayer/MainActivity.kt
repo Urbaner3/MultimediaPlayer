@@ -22,13 +22,14 @@ class MainActivity : AppCompatActivity() {
         val nativeOutput = FFmpegBridge.stringFromJNI()
         Log.d("JNI", "Native says: ${nativeOutput}")
         // Copy asset file to internal storage so FFmpeg can read it
-        val inputFile = File(filesDir, "sample.mp4")
-        assets.open("sample.mp4").use { input ->
-            FileOutputStream(inputFile).use { output ->
-                input.copyTo(output)
-            }
-        }
-
+//        val inputFile = File(filesDir, "sample.mp4")
+//        assets.open("sample.mp4").use { input ->
+//            FileOutputStream(inputFile).use { output ->
+//                input.copyTo(output)
+//            }
+//        }
+//
+//        Log.d("FFmpeg", "Before metadata!!!")
 //        val metadata = FFmpegBridge.extractMetadata(inputFile.absolutePath)
 //        Log.d("FFmpeg", "Metadata: $metadata")
     }
