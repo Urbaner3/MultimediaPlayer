@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        val metadata = FFmpegBridge.extractMetadata(inputFile.absolutePath)
-        Log.d("FFmpeg", "Metadata: $metadata")
+//        val metadata = FFmpegBridge.extractMetadata(inputFile.absolutePath)
+//        Log.d("FFmpeg", "Metadata: $metadata")
     }
 
     /**

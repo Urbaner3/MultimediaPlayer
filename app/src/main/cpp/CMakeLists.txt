@@ -40,13 +40,13 @@ add_library(
         ffmpeg_bridge.cpp)
 
 # ✅ Dynamically load ABI-specific shared libraries
-add_library(ffmpeg SHARED IMPORTED)
+#add_library(ffmpeg SHARED IMPORTED)
 
 # Path based on current build ABI
 set(lib_path ${CMAKE_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
 
 # Point each imported library to the correct .so for that ABI
-set_target_properties(ffmpeg  PROPERTIES IMPORTED_LOCATION ${lib_path}/libffmpeg.so)
+#set_target_properties(ffmpeg  PROPERTIES IMPORTED_LOCATION ${lib_path}/libffmpeg.so)
 
 # Specifies libraries CMake should link to your target library. You
 # can link libraries from various origins, such as libraries defined in this
@@ -63,5 +63,5 @@ find_library(
 
 target_link_libraries(
         ffmpegbridge
-        ffmpeg
+#        ffmpeg
         ${log-lib})

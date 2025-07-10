@@ -6,5 +6,5 @@ object FFmpegBridge {
     }
 
     external fun stringFromJNI(): String
-    external fun extractMetadata(filePath: String): String
+//    external fun extractMetadata(filePath: String): String
 }
